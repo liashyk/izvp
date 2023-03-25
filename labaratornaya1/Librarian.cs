@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace labaratornaya1
+﻿namespace labaratornaya1
 {
-	internal class Librarian:Human
+	internal class Librarian : Human
 	{
 		private LibraryStore store;
-		public Librarian(LibraryStore libraryStore) 
+		public Librarian(LibraryStore libraryStore)
 		{
-			store= libraryStore;
+			store = libraryStore;
 		}
 		public void AddBook(Book book)
 		{
@@ -21,18 +15,18 @@ namespace labaratornaya1
 		{
 			store.RemoveBook(book);
 		}
-		public Order CreateOrder(IEnumerable<Book> books)
+		public Order CreateOrder(IEnumerable<Book> books, Student student)
 		{
 			Data currentDate = new Data(1, 1, 2023);
 			Data expirationDate = new Data(1, 3, 2023);
-			Order order = new Order(currentDate, expirationDate,books);
+			Order order = new Order(currentDate, expirationDate, student, books);
 
 			return order;
 		}
 
-		public Order CreateOrder()
+		public Order CreateOrder(Student student)
 		{
-			return CreateOrder(new List<Book>());
+			return CreateOrder(new List<Book>(),student);
 		}
 	}
 }

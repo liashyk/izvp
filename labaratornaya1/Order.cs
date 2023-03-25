@@ -11,20 +11,23 @@ namespace labaratornaya1
 		private Data orderDate;
 		private Data expirationDate;
 		private List<Book> books;
+		private Student student;
 
-		public Order(Data orderDate, Data expirationDate)
+		public Order(Data orderDate, Data expirationDate, Student student)
 		{
 			this.orderDate = orderDate;
 			this.expirationDate = expirationDate;
-			books= new List<Book>();
+			books = new List<Book>();
+			this.student = student;
 		}
 
-		public Order(Data orderDate, Data expirationDate, IEnumerable<Book> books) 
+		public Order(Data orderDate, Data expirationDate, Student student,IEnumerable<Book> books) 
 		{
 			this.orderDate = orderDate;
 			this.expirationDate = expirationDate;
 			this.books = new List<Book>();
-			foreach(Book book in books)
+			this.student = student;
+			foreach (Book book in books)
 			{
 				this.books.Add(book);
 			}

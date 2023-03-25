@@ -5,7 +5,12 @@
 		public static double Table(double a, double b, double h, Func<double, double> f)
 		{
 			//функція Table табулює функцію f на відрізку [a, b] з кроком h
-			throw new NotImplementedException();
+			while (a <= b)
+			{
+				Console.WriteLine($"x: {a}; y:{f(a)}");
+				a += h;
+			}
+			return 0;
 		}
 
 		public static double Dihotom(double a, double b, double eps, Func<double, double> f)//eps - точність
