@@ -13,5 +13,12 @@
 		{
 			orders.Add(order);
 		}
+		public void ShowOrder()
+		{
+			foreach (Order item in orders)
+			{
+				Console.WriteLine(item);
+			}
+		}
 	}
 }

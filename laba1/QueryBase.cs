@@ -27,12 +27,17 @@
 		public static uint Numbers<T>(this IEnumerable<T> collect)
 		{
 			// функція  Numbers повертає кількість елементів колекції collect
-			return (uint)collect.Count();
+			uint count = 0;
+			foreach (var item in collect)
+			{
+				count++;
+			}
+			return count;
 		}
 
 		public static T[] ToMasiv<T>(this IEnumerable<T> collect)
 		{
-			var size = (uint)collect.Count();
+			var size = collect.Numbers();
 			var array = new T[size];
 			int it = 0;
 			foreach (var item in collect)
@@ -45,9 +50,8 @@
 
 		public static List<T> ToSpisok<T>(this IEnumerable<T> collect)
 		{
-			var size = (uint)collect.Count();
+			var size = collect.Numbers();
 			var spisok = new List<T>();
-			int it = 0;
 			foreach (var item in collect)
 			{
 				spisok.Add(item);
@@ -57,7 +61,7 @@
 
 		public static IEnumerable<U> SortKey<U, V>(this IEnumerable<U> collect, Func<U, V> key) where V : IComparable<V>
 		{
-			uint length = (uint)collect.Count();
+			uint length = collect.Numbers();
 			var array = collect.ToMasiv();
 			for (int i = 0; i < length - 1; i++)
 			{
@@ -74,7 +78,7 @@
 			return array;
 
 		}
-		static IEnumerable<T> Distinct<T>(this IEnumerable<T> collect)
+		public static IEnumerable<T> MyDistinct<T>(this IEnumerable<T> collect)
 		{
 			// функція  Distinct вертає унікальні елементи колекції collect
 			var list = new List<T>();
@@ -93,7 +97,7 @@
 		{
 			foreach (var item in values)
 			{
-				if (values.Equals(value))
+				if (item.Equals(value))
 				{
 					return true;
 				}
@@ -102,7 +106,7 @@
 		}
 
 		// функція Range  генерує послідовність цілих чисел у заданому діапазоні.
-		static IEnumerable<int> Range(int first, int end)
+		public static IEnumerable<int> Range(int first, int end)
 		{
 			var result = new List<int>();
 			for (int i = first; i <= end; i++)

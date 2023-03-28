@@ -7,30 +7,27 @@
 			//функція Table табулює функцію f на відрізку [a, b] з кроком h
 			while (a <= b)
 			{
-				Console.WriteLine($"x: {a}; y:{f(a)}");
+				Console.WriteLine("x: {0:f2}; y:{1:f5}", a, f(a));
 				a += h;
 			}
 			return 0;
 		}
 
+		//to do
+		//функція  Dihotom шукає корінь функції f на відрізку [a, b] методом діленням пополам
 		public static double Dihotom(double a, double b, double eps, Func<double, double> f)//eps - точність
 		{
-			while (true)
+			double c=0;
+			while ((b - a) / 2 > eps)
 			{
-				var c = (a + b) / 2;
-				if (f(c) == 0 || (b - a) / 2 < eps)
-				{
-					return c;
-				}
-				if (f(c) == f(a))
-				{
-					a = c;
-				}
+				c = (a + b) / 2;
+				if ((f(a) * f(c)) > 0) a = c;
 				else b = c;
 			}
-			throw new Exception("somth wrong");
-			//функція  Dihotom шукає корінь функції f на відрізку [a, b] методом діленням пополам
+			return c;
 		}
+
+
 		public static double Hords(double a, double b, double eps, Func<double, double> f)//eps - точність
 		{
 			//функція  Hords шукає корінь функції f на відрізку [a, b] методом хорд

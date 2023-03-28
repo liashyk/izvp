@@ -6,17 +6,18 @@
 		{
 
 			//1)
-			//TextReader textReader = new TextReader("C:/Users/ilya9/source/repos/izvp/laba3/EnglishDialog.txt");
+			TextReader textReader = new TextReader("C:/Users/ilya9/source/repos/izvp/laba3/EnglishDialog.txt");
 			//var wordAmount = textReader.GetWordAmountDictionary();
-			//foreach(var word in wordAmount)
+			//foreach (var word in wordAmount)
 			//{
-			//	Console.WriteLine(word.Key+" : "+word.Value);
+			//	Console.WriteLine(word.Key + " : " + word.Value);
 			//}
+			Console.WriteLine(textReader.GetSimpleText());
 
 			//2)
-			Client client = new Client();
-			client.Email = "ilyaasd.com";
-			Console.WriteLine(client.Email);
+			//Client client = new Client();
+			//client.Email = "ilyaasd.com";
+			//Console.WriteLine(client.Email);
 		}
 	}
 }

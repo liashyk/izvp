@@ -24,5 +24,12 @@ namespace labaratornaya1
 			books.Remove(book);
 		}
 
+		public void Show()
+		{
+			foreach (Book book in books)
+			{
+				Console.WriteLine(book);
+			}
+		}
 	}
 }

@@ -3,7 +3,7 @@
 	internal class Librarian : Human
 	{
 		private LibraryStore store;
-		public Librarian(LibraryStore libraryStore)
+		public Librarian(string name, Data data, LibraryStore libraryStore):base(name,data)
 		{
 			store = libraryStore;
 		}

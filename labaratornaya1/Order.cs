@@ -33,6 +33,18 @@ namespace labaratornaya1
 			}
 		}
 
+		public override string ToString()
+		{
+			var result = "";
+			result+=" "+orderDate+"\n";
+			result += " " + expirationDate + "\n";
+			foreach(Book book in books)
+			{
+				result += " " + book + "\n";
+			}
+			return result;
+		}
+
 
 	}
 }
